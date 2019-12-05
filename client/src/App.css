@@ -1,3 +1,417 @@
 body {
   text-align: center;
+  margin: 0;
+}
+
+/* label CSS is known as "Clipping CSS Snippet": https://www.nomensa.com/blog/2017/how-improve-web-accessibility-hiding-elements */
+label {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* ================== Main Page ================== */
+#main-div {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  grid-template-areas:
+      "main side"
+      "main side"
+      "main side";
+}
+
+#recipe-list {
+grid-area: main;
+box-sizing: border-box;
+height: 75vh;
+overflow: auto;
+width: 100%;
+padding: 5px 15px 5px 15px;
+position: relative;
+}
+
+.recipes {
+display: grid;
+grid-template-columns: 40% 55%;
+margin-top: 15px;
+}
+
+#recipe-list h1 {
+font-family:'Arvo', Arial;
+font-weight:700;
+text-align: center;
+color: #AE6968;
+}
+
+.recipes button {
+font-size: 1em;
+font-weight: bold;
+background: #D4EBEB;
+border: 2px solid #69AEAE;
+color: #AE6968;
+border-radius: 10px;
+transition: background-color 250ms linear;
+}
+
+.recipes button:hover {
+background: #AE6968;
+color: whitesmoke;
+}
+
+.recipe-image-container {
+text-align: center;
+padding: 10px
+}
+
+#user-image {
+width: 200px;
+margin: 0 auto;
+padding: 5px;
+}
+
+#user-image p {
+margin: 0px auto;
+padding-bottom: 12px;
+}
+
+#user-image h3 {
+margin: 0px auto;
+}
+
+.recipes img {
+max-width: 90%;
+border-radius: 60px;
+box-shadow: 4px 4px;
+}
+
+.main-side {
+grid-area: side;
+border-left: 3px solid #D4EBEB;
+box-sizing: border-box;
+height: 75vh;
+overflow: auto;
+width: 100%;
+position: relative;
+}
+
+.main-side img {
+max-width: 60%;
+border-radius: 30%;
+}
+
+.main-side-top {
+text-align: center;
+}
+
+.main-side-top h1{
+font-family:'Arvo', Arial;
+font-weight:700;
+letter-spacing:1px;
+}
+
+.main-side-top button {
+font-family:'Literata', Arial;
+font-weight: 600;
+margin: 5px 10px;
+font-size: 1em;
+width: 30%;
+height: 35px;
+background: #D4EBEB;
+border: 2px solid #69AEAE;
+border-radius: 10px;
+transition: background-color 250ms linear;
+color: #AE6968;
+}
+
+.main-side-top button:hover {
+background: #AE6968;
+color: whitesmoke;
+}
+
+.sticky {
+position: -webkit-sticky;
+position: sticky;
+top: -1px;
+margin-bottom: 10px;
+background-color: white;
+}
+
+.black {
+background-color: #D4EBEB;
+color: #AE6968;
+margin: 0;
+padding: 20px;
+}
+
+.main-side-top-buttons h1 {
+margin: 0;
+padding-top: 20px;
+color: #AE6968;
+}
+
+.main-side-top-buttons h3 {
+margin: .5em;
+color: #AE6968;
+}
+
+.main-recipe-recipes h2{
+font-family:'Arvo', Arial;
+}
+.main-user-recipes {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+background-color: #D4EBEB;
+color: #AE6968;
+}
+
+.main-user-recipes img {
+justify-self: center;
+margin: 10px 0;
+}
+
+.main-user-recipe-heading {
+align-self: center;
+}
+
+.full-recipe-div {
+text-align: center;
+}
+
+.full-recipe-div img {
+width: 50%;
+}
+
+.full-recipe-user-buttons {
+text-align: center;
+margin-bottom: 50px;
+}
+
+.user-recipes {
+display: grid;
+grid-template-columns: 40% 50%;
+margin-top: 15px;
+}
+
+.user-recipe-image-container {
+text-align: center;
+padding: 10px;
+}
+
+.user-recipe-image-container img {
+max-width: 90%;
+border-radius: 60px;
+box-shadow: 4px 4px;
+}
+
+.user-recipe-content-container h2 {
+font-family: 'Literata', monospace;
+font-weight: 600;
+font-style: italic;
+}
+
+.user-recipe-content-container p {
+font-family: 'Literata', monospace;
+font-size: 1em;
+}
+
+.user-recipe-content-container button {
+font-size: 1em;
+font-weight: 600;
+background: whitesmoke;
+border: 2px solid black;
+border-radius: 10px;
+transition: background-color 250ms linear;
+font-family: 'Literata', Arial;
+}
+
+.user-recipe-content-container button:hover {
+background: black;
+color: whitesmoke;
+}
+
+/* =============== Header ================= */
+
+header {
+  font-size: 2em;
+  height: 100px;
+  border-bottom: 1.2px solid #D4EBEB;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+header img {
+  width: 90%;
+  margin-block-start: .4em;
+  margin-block-end: .4em;
+  margin-left: 15px;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header p {
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(#AE6968, #AE6968);
+  background-size: 0 2px, auto;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  transition: all .2s ease-out;
+  color: #69AEAE;
+  width: 70%;
+}
+
+header p:hover {
+  color: #AE6968;
+  background-size: 100% 2px, auto;
+}
+
+/* ================ Footer ================ */
+
+.footer {
+  width: 100%;
+  height: 10vh;
+  background-color: #AE6968;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer img {
+  width: 50px;
+}
+
+#github {
+  height:2.7em;
+  width:1.2em;
+  background-color:white;
+  align-self:auto;
+  padding:.3em 2em .2em 0;
+  margin-right:1em;
+  border-radius:30px;
+}
+
+
+/* ================ Cards ================ */
+.top-container {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.main-container-sub {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  /* width: 1100px; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 15px;
+  margin: 0 auto;
+}
+
+.container .card {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  margin: 0 auto;
+  background: #fff;
+  transition: 0.5s;
+}
+
+.container .card:hover {
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2)
+}
+
+.container .card .face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .card .face.face1 {
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: center;
+  background: #fff;
+  color: #69AEAE;
+}
+
+.container .card .face.face1 h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+}
+
+.container .card .face.face2 {
+  background: #AE6968;
+  transition: 0.5s;
+}
+
+.container .card:hover .face.face2 {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  top: 20%;
+  left: 25%;
+  transform: translateX(-50%);
+  background: white;
+  border: 2px solid #AE6968;
+}
+
+.container .card .face.face2 h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.container .card:hover .face.face2 h2 {
+  color: #69AEAE;
+  font-size: .7em;
+}
+
+.content img {
+  width: 200px;
+  height: 200px;
+}
+
+.content button {
+  font-size: 1em;
+  font-weight: bold;
+  background: #D4EBEB;
+  border: 2px solid #69AEAE;
+  color: #AE6968;
+  border-radius: 10px;
+  transition: background-color 250ms linear;
+  margin-top: 10px;
+}
+
+.content button:hover {
+  background: #AE6968;
+  color: whitesmoke;
+}
+
+.main-container-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 15px;
 }
