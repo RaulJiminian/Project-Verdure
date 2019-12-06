@@ -81,8 +81,10 @@ export const getAllComments = async (recipe_id) => {
   return response.data
 }
 
-export const postComment = async (recipe_id, commentData) => {
-  const response = await api.post(`/recipes/${recipe_id}/recipe_comments`, commentData);
+export const postComment = async (recipe_id, user_id, commentData) => {
+  commentData.user_id = user_id
+  commentData.recipe_id = recipe_id
+  const response = await api.post(`/recipes/${recipe_id}/recipe_comments`, { recipe_comment: commentData });
   return response.data
 }
 

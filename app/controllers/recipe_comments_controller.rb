@@ -19,7 +19,7 @@ class RecipeCommentsController < ApplicationController
     @recipe_comment = RecipeComment.new(recipe_comment_params)
 
     if @recipe_comment.save
-      render json: @recipe_comment, status: :created, location: @recipe_comment
+      render json: @recipe_comment, status: :created
     else
       render json: @recipe_comment.errors, status: :unprocessable_entity
     end
@@ -47,6 +47,6 @@ class RecipeCommentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def recipe_comment_params
-      params.require(:recipe_comment).permit(:description, :user_id, :recipe_id)
+      params.require(:recipe_comment).permit(:comment, :user_id, :recipe_id)
     end
 end

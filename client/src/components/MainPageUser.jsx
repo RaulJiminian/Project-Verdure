@@ -52,7 +52,6 @@ export default class MainPageUser extends React.Component {
                 </Link>
                 <div className="main-user-recipe-heading">
                   <h2>{recipe.title}</h2>
-                  {/* <h3>{recipe.description}</h3> */}
                 </div>
               </ div>
             ))

@@ -72,8 +72,8 @@ class App extends React.Component {
     this.setState({ recipes })
   }
 
-  allUserRecipes = async () => {
-    const userRecipes = await getAllUserRecipes();
+  allUserRecipes = async (userId) => {
+    const userRecipes = await getAllUserRecipes(userId);
     userRecipes.sort(function (a, b) {
       return new Date(b.createdAt) - new Date(a.createdAt);
     })

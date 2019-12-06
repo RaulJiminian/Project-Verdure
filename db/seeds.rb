@@ -89,7 +89,7 @@ recipeThree = Recipe.create({
 })
 
 recipe_comment = RecipeComment.create({
-  description: '',
+  comment: '',
   user_id: 1,
   recipe_id: 1
 })

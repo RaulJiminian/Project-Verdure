@@ -7,30 +7,31 @@ import CreateComments from './CreateComments';
 
 export default class FullRecipe extends React.Component {
   state = {
-    comments: [],
+    comment: [],
     oneRecipe: null
   }
 
   async componentDidMount() {
     const oneRecipe = await getOneRecipe(this.props.id);
-    const comments = await getAllComments(this.props.id);
+    const comment = await getAllComments(this.props.id);
     this.setState({
-      comments: comments,
+      comment: comment,
       oneRecipe: oneRecipe
     })
   }
 
-  createComment = async (recipe_id, commentData) => {
-    const newComment = await postComment(recipe_id, commentData);
+  createComment = async (recipe_id, user_id, commentData) => {
+    const newComment = await postComment(recipe_id, user_id, commentData);
+    debugger;
     this.setState(prevState => ({
-      comments: [...prevState.comments, newComment]
+      comment: [...prevState.comment, newComment]
     }))
   }
 
   destroyComment = async (comment_id) => {
     await deleteComment(comment_id);
     this.setState(prevState => ({
-      comments: prevState.comments.filter(comment => {
+      comment: prevState.comment.filter(comment => {
         return comment.id !== comment_id
       })
     }))
@@ -57,8 +58,8 @@ export default class FullRecipe extends React.Component {
               {this.state.oneRecipe.user.id === this.props.currentUser.id ? <button id={this.state.oneRecipe.id} onClick={this.props.handleDelete}>Delete Recipe</button> : null}
               {this.state.oneRecipe.user.id === this.props.currentUser.id ? <Link to={`/edit/${this.state.oneRecipe.id}`}><button id={this.state.oneRecipe.id}>Edit Recipe</button></Link> : null}
             </div>
-            <CreateComments createComment={this.createComment} recipe_id={this.state.oneRecipe.id} />
-            <CommentList destroyComment={this.destroyComment} comments={this.state.comments} recipe_id={this.state.oneRecipe.id} />
+            <CreateComments createComment={this.createComment} recipe_id={this.state.oneRecipe.id} currentUser={this.props.currentUser}/>
+            <CommentList destroyComment={this.destroyComment} comment={this.state.comment} recipe_id={this.state.oneRecipe.id} />
           </div>
         }
       </>

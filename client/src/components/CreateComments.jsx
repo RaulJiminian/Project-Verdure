@@ -1,13 +1,20 @@
-import React from 'react'
+import React from 'react';
 
 export default class CreateComments extends React.Component {
   state = {
-    comment: ""
+    commentData: {
+      comment: ''
+    }
   }
 
   handleChange = (event) => {
     const { name, value } = event.target;
-    this.setState({ [name]: value })
+    this.setState(prevState => ({
+      commentData: {
+        ...prevState.commentData,
+        [name]: value
+      }
+    }))
   }
 
   render() {
@@ -15,14 +22,14 @@ export default class CreateComments extends React.Component {
       <div className="comment-box">
         <form className="comment-form" onSubmit={(event) => {
           event.preventDefault()
-          this.props.createComment(this.props.recipe_id, this.state)
+          this.props.createComment(this.props.recipe_id, this.props.currentUser.id, this.state.commentData)
         }}>
           <label id='comment-label' htmlFor="comment">Comment</label>
           <textarea
             name="comment"
             id="comment"
             placeholder="Comments..."
-            value={this.state.comment}
+            value={this.state.commentData.comment}
             onChange={this.handleChange}
           ></textarea>
           <button id='comment-button'>Submit</button>
