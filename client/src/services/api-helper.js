@@ -1,7 +1,10 @@
 import axios from 'axios';
 
+// const baseUrl = "https://verdure-api.herokuapp.com"
+const baseUrl = "http://localhost:3000"
+
 const api = axios.create({
-  baseURL: "http://localhost:3000"
+  baseURL: baseUrl
 });
 
 // ============== Auth ================
@@ -89,11 +92,11 @@ export const postComment = async (recipe_id, user_id, commentData) => {
 }
 
 export const putComment = async (comment_id, commentData) => {
-  const response = await api.put(`/recipes/:recipe_id/comments/${comment_id}`, commentData);
+  const response = await api.put(`/recipes/:recipe_id/recipe_comments/${comment_id}`, commentData);
   return response.data;
 }
 
 export const deleteComment = async (comment_id) => {
-  const response = await api.delete(`/recipes/:recipe_id/comments/${comment_id}`);
+  const response = await api.delete(`/recipes/:recipe_id/recipe_comments/${comment_id}`);
   return response.data;
 }

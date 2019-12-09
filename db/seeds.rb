@@ -36,7 +36,7 @@ userThree = User.create({
 recipe = Recipe.create({
   image_url: 'https://www.connoisseurusveg.com/wp-content/uploads/2019/01/vegan-banana-bread-1-of-1.jpg',
   title: 'Banana Bread',
-  description: 'The great thing about veganizing banana bread is that you don’t have to fuss over figuring out the right egg substitute. Bananas do the job! I use bananas as an egg substitutes in all kinds of vegan baked goods, but when it comes to banana bread, they’re already an integral part of the recipe.',
+  description: 'The great thing about veganizing banana bread is that you don’t have to fuss over figuring out the right egg substitute. Bananas do the job!',
   ingredients: '3 medium overripe bananas
   1/3 cup organic granulated sugar
   1/3 cup organic brown sugar

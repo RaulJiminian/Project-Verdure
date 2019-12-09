@@ -22,7 +22,6 @@ export default class FullRecipe extends React.Component {
 
   createComment = async (recipe_id, user_id, commentData) => {
     const newComment = await postComment(recipe_id, user_id, commentData);
-    debugger;
     this.setState(prevState => ({
       comment: [...prevState.comment, newComment]
     }))
@@ -35,6 +34,7 @@ export default class FullRecipe extends React.Component {
         return comment.id !== comment_id
       })
     }))
+    // this.props.history.push(`/full_recipe/${id}`) [TBU] Not sure if we need to add this line
   }
 
   render() {

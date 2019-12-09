@@ -18,6 +18,7 @@ label {
 
 /* ================== Main Page ================== */
 #main-div {
+  margin-top: 100px;
   display: grid;
   grid-template-columns: 65% 35%;
   grid-template-areas:
@@ -30,7 +31,8 @@ label {
 grid-area: main;
 box-sizing: border-box;
 height: 75vh;
-overflow: auto;
+overflow-y: auto;
+overflow-x: hidden;
 width: 100%;
 padding: 5px 15px 5px 15px;
 position: relative;
@@ -119,9 +121,9 @@ letter-spacing:1px;
 font-family:'Literata', Arial;
 font-weight: 600;
 margin: 5px 10px;
-font-size: 1em;
+font-size: .8em;
 width: 30%;
-height: 35px;
+height: 25px;
 background: #D4EBEB;
 border: 2px solid #69AEAE;
 border-radius: 10px;
@@ -140,13 +142,21 @@ position: sticky;
 top: -1px;
 margin-bottom: 10px;
 background-color: white;
+height: 50px;
+z-index: 50;
+}
+
+.sticky button {
+  height: 25px;
+  margin-top: 13px;
 }
 
 .black {
-background-color: #D4EBEB;
-color: #AE6968;
+background-color: #AE6968;
+color: white;
 margin: 0;
 padding: 20px;
+z-index: 50;
 }
 
 .main-side-top-buttons h1 {
@@ -163,11 +173,12 @@ color: #AE6968;
 .main-recipe-recipes h2{
 font-family:'Arvo', Arial;
 }
+
 .main-user-recipes {
 display: grid;
 grid-template-columns: repeat(2, 1fr);
-background-color: #D4EBEB;
-color: #AE6968;
+background-color: #AE6968;
+color: #D4EBEB;
 }
 
 .main-user-recipes img {
@@ -195,7 +206,7 @@ margin-bottom: 50px;
 .user-recipes {
 display: grid;
 grid-template-columns: 40% 50%;
-margin-top: 15px;
+margin-top: 115px;
 }
 
 .user-recipe-image-container {
@@ -243,6 +254,11 @@ header {
   border-bottom: 1.2px solid #D4EBEB;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 100;
 }
 
 header img {
@@ -278,7 +294,7 @@ header p:hover {
 .footer {
   width: 100%;
   height: 65px;
-  background-color: #AE6968;
+  background-color: #69AEAE;
   color: whitesmoke;
   display: flex;
   align-items: center;
@@ -315,7 +331,6 @@ header p:hover {
 }
 
 .container {
-  /* width: 1100px; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 15px;
@@ -351,26 +366,44 @@ header p:hover {
   padding: 20px;
   text-align: center;
   background: #fff;
-  color: #69AEAE;
+  color: #AE6968;
+  display: grid;
+  border-radius: 20px;
+}
+
+.card {
+  border-radius: 20px;
+}
+
+.content {
+  margin-top: 80px;
 }
 
 .container .card .face.face1 h2 {
   margin-top: 0;
   margin-bottom: 15px;
   font-size: 1.3em;
+  margin-block-end: 0.2em;
+}
+
+.container .card .face.face1 p {
+  margin-block-start: 0.2em;
 }
 
 .container .card .face.face2 {
-  background: #AE6968;
   transition: 0.5s;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  border-radius: 20px;
 }
 
 .container .card:hover .face.face2 {
   height: 80px;
   width: 80px;
-  border-radius: 50%;
-  top: 20%;
-  left: 25%;
+  border-radius: 50% !important;
+  top: 10px;
+  left: 50%;
   transform: translateX(-50%);
   background: white;
   border: 2px solid #AE6968;
@@ -385,27 +418,22 @@ header p:hover {
 }
 
 .container .card:hover .face.face2 h2 {
-  color: #69AEAE;
-  font-size: .7em;
+  display: none;
 }
 
-.content img {
-  width: 200px;
-  height: 200px;
-}
-
-.content button {
-  font-size: 1em;
+.main-page-button {
+  font-size: .8em;
   font-weight: bold;
   background: #D4EBEB;
   border: 2px solid #69AEAE;
   color: #AE6968;
   border-radius: 10px;
   transition: background-color 250ms linear;
-  margin-top: 10px;
+  /* position: absolute;
+  bottom: 10px; */
 }
 
-.content button:hover {
+.main-page-button:hover {
   background: #AE6968;
   color: whitesmoke;
 }
@@ -414,4 +442,139 @@ header p:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 15px;
+}
+
+/* ================ Cards - Side ================ */
+.main-container-segment {
+  background-color: #AE6968;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.side-segment-grid {
+  display: grid;
+  grid-template-areas: 'side1 side2';
+  background: #AE6968;
+}
+
+.main-container-sub-segment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-segment .card-segment {
+  position: relative;
+  width: 175px;
+  height: 300px;
+  margin: 0 auto;
+  background: #fff;
+  transition: 0.5s;
+}
+
+.container-segment .card-segment:hover {
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2)
+}
+
+.container-segment .card-segment .face-segment {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-segment .card-segment .face-segment.face1-segment {
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: center;
+  background: #fff;
+  color: #AE6968;
+  display: grid;
+  border-radius: 20px;
+}
+
+.card-segment {
+  border-radius: 20px;
+}
+
+.content-segment {
+  margin-top: 80px;
+  width: 130px;
+}
+
+.container-segment .card-segment .face-segment.face1-segment h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+  margin-block-end: 0.2em;
+}
+
+.container-segment .card-segment .face-segment.face1-segment p {
+  margin-block-start: 0.2em;
+}
+
+.container-segment .card-segment .face-segment.face2-segment {
+  transition: 0.5s;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  border-radius: 20px;
+}
+
+.container-segment .card-segment:hover .face-segment.face2-segment {
+  height: 80px;
+  width: 80px;
+  border-radius: 50% !important;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 2px solid #AE6968;
+}
+
+.container-segment .card-segment .face-segment.face2-segment h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.container-segment .card-segment:hover .face-segment.face2-segment h2 {
+  display: none;
+}
+
+.main-page-button-segment-info {
+  font-size: 1em;
+  font-weight: bold;
+  background: #D4EBEB;
+  border: 2px solid #69AEAE;
+  color: #AE6968;
+  border-radius: 10px;
+  transition: background-color 250ms linear;
+  width: 45% !important;
+}
+
+.main-page-button-segment:hover {
+  background: #AE6968;
+  color: whitesmoke;
+}
+
+.main-container-card-grid-segment {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 15px;
+}
+
+/* ================ Forms ================ */
+.create-recipe {
+  margin-top: 115px;
+}
+
+.full-recipe-page {
+  margin-top: 115px;
 }

@@ -20,14 +20,16 @@ export default class MainPage extends React.Component {
                       <div className="card">
                         <div className="face face1">
                           <div className="content">
-                            <h2>Created by: {recipe.user.username}</h2>
-                            <img src={recipe.image_url} alt="recipe-post" />
-                            <Link to={`/full_recipe/${recipe.id}`}>
-                              <button id={recipe.id}>...read more!</button>
-                            </Link>
+                            <div>
+                              <h2>Chef: {recipe.user.username}</h2>
+                              <p>{recipe.description}</p>
+                            </div>
                           </div>
+                            <Link to={`/full_recipe/${recipe.id}`}>
+                              <button id={recipe.id} className="main-page-button">Go to</button>
+                            </Link>
                         </div>
-                        <div className="face face2">
+                        <div className="face face2" style={{ background: 'url(' + recipe.image_url + ')' }}>
                           <h2>{recipe.title}</h2>
                         </div>
                       </div>
@@ -39,6 +41,7 @@ export default class MainPage extends React.Component {
           </div>
         </div>
         {
+          // [TBU] Add conditional if Toggle true; display MainPageUser
           this.props.currentUser &&
           < MainPageUser handleLogout={this.props.handleLogout} currentUser={this.props.currentUser} currentUserRecipes={this.props.currentUserRecipes} />
         }

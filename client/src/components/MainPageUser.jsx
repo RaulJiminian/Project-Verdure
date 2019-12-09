@@ -42,22 +42,54 @@ export default class MainPageUser extends React.Component {
               <button>Create</button>
             </Link>
           </div>
-          <h1 className="black">My recent posts</h1>
-          {
-            this.state.currentUserRecipes &&
-            this.state.currentUserRecipes.map(recipe => (
-              <div className="main-user-recipes" key={recipe.id}>
-                <Link to={`/full_recipe/${recipe.id}`} >
-                  <img src={recipe.image_url} alt="recipe post" id={recipe.id} />
-                </Link>
-                <div className="main-user-recipe-heading">
-                  <h2>{recipe.title}</h2>
+          <h1 className="black">Recent Recipes</h1>
+          <div className="side-segment-grid">
+            {
+              // [TBU] - After Edit; page needs refresh to show
+              this.state.currentUserRecipes &&
+              this.state.currentUserRecipes.map(recipe => (
+                <div className="main-container-segment" key={recipe.id}>
+                  <div className="main-container-sub-segment">
+                    <div className="container-segment">
+                      <div className="card-segment">
+                        <div className="face-segment face1-segment">
+                          <div className="content-segment">
+                            <div>
+                              <h3>{recipe.title}</h3>
+                              <h4>Chef: {recipe.user.username}</h4>
+                            </div>
+                          </div>
+                          <Link to={`/full_recipe/${recipe.id}`}>
+                            <button id={recipe.id} className="main-page-button-segment-info">Go to</button>
+                          </Link>
+                        </div>
+                        <div className="face-segment face2-segment" style={{ background: 'url(' + recipe.image_url + ')' }}>
+                          <h2>{recipe.title}</h2>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </ div>
-            ))
-          }
+              ))
+            }
+          </div>
         </div>
       </div>
     )
   }
 }
+
+// DELETE
+/* {
+           this.state.currentUserRecipes &&
+           this.state.currentUserRecipes.map(recipe => (
+             <div className="main-user-recipes" key={recipe.id}>
+               <Link to={`/full_recipe/${recipe.id}`} >
+                 <img src={recipe.image_url} alt="recipe post" id={recipe.id} />
+               </Link>
+               <div className="main-user-recipe-heading">
+                 <h2>{recipe.title}</h2>
+               </div>
+             </ div>
+           ))
+         } */
