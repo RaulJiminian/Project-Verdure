@@ -3,10 +3,20 @@ import { Link } from 'react-router-dom';
 import MainPageUser from './MainPageUser';
 
 export default class MainPage extends React.Component {
-
+ 
   render() {
+    const mainDivOne = {
+      gridTemplateColumns: '100%',
+      gridTemplateAreas: "main"
+    }
+
+    const mainDivTwo = {
+      gridTemplateColumns: '70% 30%',
+      gridTemplateAreas: "main side"
+    }
+
     return (
-      <div id="main-div">
+      <div id="main-div" style={this.props.toggle ? mainDivTwo : mainDivOne}>
         <div id="recipe-list">
           <h1>Take a look at our most recent recipes!</h1>
           <div className="main-container-card-grid">
@@ -25,12 +35,12 @@ export default class MainPage extends React.Component {
                               <p>{recipe.description}</p>
                             </div>
                           </div>
-                            <Link to={`/full_recipe/${recipe.id}`}>
-                              <button id={recipe.id} className="main-page-button">Go to</button>
-                            </Link>
+                          <Link to={`/full_recipe/${recipe.id}`}>
+                            <button id={recipe.id} className="main-page-button">Cook</button>
+                          </Link>
                         </div>
                         <div className="face face2" style={{ background: 'url(' + recipe.image_url + ')' }}>
-                          <h2>{recipe.title}</h2>
+                          <h2 className="title-outline">{recipe.title}</h2>
                         </div>
                       </div>
                     </div>
@@ -41,8 +51,7 @@ export default class MainPage extends React.Component {
           </div>
         </div>
         {
-          // [TBU] Add conditional if Toggle true; display MainPageUser
-          this.props.currentUser &&
+          this.props.currentUser && this.props.toggle &&
           < MainPageUser handleLogout={this.props.handleLogout} currentUser={this.props.currentUser} currentUserRecipes={this.props.currentUserRecipes} />
         }
       </div>

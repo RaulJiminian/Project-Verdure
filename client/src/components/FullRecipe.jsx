@@ -58,7 +58,7 @@ export default class FullRecipe extends React.Component {
               {this.state.oneRecipe.user.id === this.props.currentUser.id ? <button id={this.state.oneRecipe.id} onClick={this.props.handleDelete}>Delete Recipe</button> : null}
               {this.state.oneRecipe.user.id === this.props.currentUser.id ? <Link to={`/edit/${this.state.oneRecipe.id}`}><button id={this.state.oneRecipe.id}>Edit Recipe</button></Link> : null}
             </div>
-            <CreateComments createComment={this.createComment} recipe_id={this.state.oneRecipe.id} currentUser={this.props.currentUser}/>
+            <CreateComments createComment={this.createComment} recipe_id={this.state.oneRecipe.id} currentUser={this.props.currentUser} />
             <CommentList destroyComment={this.destroyComment} comment={this.state.comment} recipe_id={this.state.oneRecipe.id} />
           </div>
         }

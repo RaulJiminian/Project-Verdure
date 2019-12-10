@@ -20,7 +20,8 @@ class App extends React.Component {
       currentUser: null,
       authErrorMessage: '',
       recipes: [],
-      currentUserRecipes: []
+      currentUserRecipes: [],
+      toggle: true
     }
   }
 
@@ -128,17 +129,23 @@ class App extends React.Component {
     this.props.history.push('/recipes')
   }
 
+  handleToggle = () => {
+    this.setState(prevState => ({
+      toggle: !this.state.toggle
+    }))
+  }
+
   render() {
     return (
       <div className="App">
         {
           this.state.currentUser ?
-            <Header /> : <div></div>
+            <Header handleToggle={this.handleToggle}/> : <div></div>
         }
 
         {
           this.state.currentUser && this.state.recipes ?
-            <Route exact path="/recipes" render={() => (<MainPage recipes={this.state.recipes} currentUser={this.state.currentUser} currentUserRecipes={this.state.currentUserRecipes} handleLogout={this.handleLogout} />)} /> :
+            <Route exact path="/recipes" render={() => (<MainPage toggle={this.state.toggle} recipes={this.state.recipes} currentUser={this.state.currentUser} currentUserRecipes={this.state.currentUserRecipes} handleLogout={this.handleLogout} />)} /> :
             <div></div>
         }
 

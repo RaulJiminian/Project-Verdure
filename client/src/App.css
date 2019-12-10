@@ -20,11 +20,8 @@ label {
 #main-div {
   margin-top: 100px;
   display: grid;
-  grid-template-columns: 65% 35%;
-  grid-template-areas:
-      "main side"
-      "main side"
-      "main side";
+  grid-template-columns: 70% 30%;
+  grid-template-areas:"main side";
 }
 
 #recipe-list {
@@ -124,16 +121,19 @@ margin: 5px 10px;
 font-size: .8em;
 width: 30%;
 height: 25px;
-background: #D4EBEB;
-border: 2px solid #69AEAE;
+background: #be8786;
+border: 2px solid #AE6968;
 border-radius: 10px;
 transition: background-color 250ms linear;
-color: #AE6968;
+color: white;
+box-shadow: 2px 2px 2px lightgray;
+cursor: pointer;
 }
 
 .main-side-top button:hover {
-background: #AE6968;
+background: #69AEAE;
 color: whitesmoke;
+box-shadow: 2px 2px 2px #D4EBEB;
 }
 
 .sticky {
@@ -268,6 +268,14 @@ header img {
   margin-left: 15px;
 }
 
+.login-image {
+  width: 30%;
+  cursor: pointer;
+  margin: 20px auto 0 auto;
+  border: 1px solid #AE6968;
+  border-radius: 30px;
+}
+
 header a {
   text-decoration: none;
 }
@@ -282,6 +290,7 @@ header p {
   transition: all .2s ease-out;
   color: #69AEAE;
   width: 70%;
+  cursor: pointer;
 }
 
 header p:hover {
@@ -371,6 +380,10 @@ header p:hover {
   border-radius: 20px;
 }
 
+a:-webkit-any-link {
+  cursor: auto;
+}
+
 .card {
   border-radius: 20px;
 }
@@ -424,24 +437,32 @@ header p:hover {
 .main-page-button {
   font-size: .8em;
   font-weight: bold;
-  background: #D4EBEB;
-  border: 2px solid #69AEAE;
-  color: #AE6968;
+  background: #be8786;
+  border: 2px solid #AE6968;
+  color: white;
   border-radius: 10px;
   transition: background-color 250ms linear;
-  /* position: absolute;
-  bottom: 10px; */
+  box-shadow: 2px 2px 2px lightgray;
+  cursor: pointer;
 }
 
 .main-page-button:hover {
-  background: #AE6968;
+  background: #69AEAE;
   color: whitesmoke;
+  box-shadow: 2px 2px 2px #D4EBEB;
 }
 
 .main-container-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 15px;
+}
+
+.title-outline {
+  color: black;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1.2px;
+  -webkit-text-stroke-color: #AE6968;
 }
 
 /* ================ Cards - Side ================ */
@@ -465,8 +486,8 @@ header p:hover {
 
 .container-segment .card-segment {
   position: relative;
-  width: 175px;
-  height: 300px;
+  width: 135px;
+  height: 185px;
   margin: 0 auto;
   background: #fff;
   transition: 0.5s;
@@ -502,7 +523,7 @@ header p:hover {
 }
 
 .content-segment {
-  margin-top: 80px;
+  margin-top: 60px;
   width: 130px;
 }
 
@@ -539,13 +560,23 @@ header p:hover {
 .container-segment .card-segment .face-segment.face2-segment h2 {
   margin: 0;
   padding: 0;
-  font-size: 2em;
+  font-size: 1.6em;
   color: #fff;
   transition: 0.5s;
 }
 
 .container-segment .card-segment:hover .face-segment.face2-segment h2 {
   display: none;
+}
+
+.sub-segment-card-heading h3 {
+  margin-bottom: 0;
+  font-size: 15px;
+}
+
+.sub-segment-card-heading h4 {
+  margin: 0;
+  font-size: 12px;
 }
 
 .main-page-button-segment-info {
