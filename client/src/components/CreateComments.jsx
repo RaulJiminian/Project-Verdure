@@ -31,7 +31,7 @@ export default class CreateComments extends React.Component {
             placeholder="Comments..."
             value={this.state.commentData.comment}
             onChange={this.handleChange}
-          ></textarea>
+          />
           <button id='comment-button'>Submit</button>
         </form>
       </div>

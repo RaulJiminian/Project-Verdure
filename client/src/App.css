@@ -166,7 +166,7 @@ grid-template-columns: 1fr 1fr;
   background-repeat: no-repeat;
   background-position: center bottom;
   transition: all .2s ease-out;
-  width: 50%;
+  width: 75%;
 }
 
 .sticky-anchor h1:hover {
@@ -233,11 +233,6 @@ text-align: center;
 
 .full-recipe-div img {
 width: 50%;
-}
-
-.full-recipe-user-buttons {
-text-align: center;
-margin-bottom: 50px;
 }
 
 .user-recipes {
@@ -333,6 +328,68 @@ header p {
 header p:hover {
   color: #AE6968;
   background-size: 100% 2px, auto;
+}
+
+/* ================ Show Page ================== */
+
+.full-recipe-img img {
+  width: 50%;
+  border-radius: 20px;
+}
+
+.full-recipe-page {
+  color: #AE6968;
+}
+
+.full-recipe-page a {
+  text-decoration: none;
+  color: #AE6968;
+  background-image: linear-gradient(#AE6968, #AE6968);
+  background-size: 0 2px, auto;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  transition: all .2s ease-out;
+}
+
+.full-recipe-page a:-webkit-any-link {
+  cursor: pointer;
+}
+
+.full-recipe-page a:hover {
+  color: #69AEAE;
+  background-size: 100% 2px, auto;
+}
+
+.full-recipe-content {
+  width: 50%;
+  margin: 0 auto;
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.full-recipe-page {
+  margin-top: 115px;
+}
+
+.full-recipe-button-reach {
+  margin-bottom: 30px;
+  font-size: .8em;
+  font-weight: bold;
+  background: #be8786;
+  border: 2px solid #AE6968;
+  color: white;
+  border-radius: 10px;
+  transition: background-color 250ms linear;
+  box-shadow: 2px 2px 2px lightgray;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.full-recipe-button-reach:hover {
+  background: #69AEAE;
+  color: whitesmoke;
+  box-shadow: 2px 2px 2px #D4EBEB;
 }
 
 /* ================ Footer ================ */
@@ -641,22 +698,39 @@ a:-webkit-any-link {
 
 /* ======================= Forms ======================= */
 
-form {
+.login-form {
+  background: #AE6968;
+  height: 100vh;
+}
+
+.register-form {
   background: #AE6968;
   height: 100vh;
 }
 
 #create-recipe-form {
+  background: #AE6968;
   height: 492px;
   display: flex;
 }
 
 #update-user-form {
+  background: #AE6968;
   height: 492px;
   display: flex;
 }
 
 .update-user {
+  margin-top: 100px;
+}
+
+#edit-recipe-form {
+  background: #AE6968;
+  height: 492px;
+  display: flex;
+}
+
+.edit-form {
   margin-top: 100px;
 }
 
@@ -811,6 +885,27 @@ form {
   color: #69AEAE;
 }
 
+#edit-recipe-button {
+  align-items: center;
+  padding: 0 20px;
+  width: 85%;
+  height: 45px;
+  background-color: #69AEAE;
+  border-radius: 25px;
+  font-size: 15px;
+  color: #AE6968;
+  margin-top: 15px;
+  font-weight: bolder;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+#edit-recipe-button:hover {
+  background-color: #AE6968;
+  color: #69AEAE;
+}
+
 .sign-in-lower-grid {
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -842,8 +937,4 @@ form {
 
 .create-recipe {
   margin-top: 100px;
-}
-
-.full-recipe-page {
-  margin-top: 115px;
 }

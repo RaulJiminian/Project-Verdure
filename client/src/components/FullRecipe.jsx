@@ -34,7 +34,6 @@ export default class FullRecipe extends React.Component {
         return comment.id !== comment_id
       })
     }))
-    // this.props.history.push(`/full_recipe/${id}`) [TBU] Not sure if we need to add this line
   }
 
   render() {
@@ -48,15 +47,17 @@ export default class FullRecipe extends React.Component {
               <img src={this.state.oneRecipe.image_url} alt="recipe final product" />
             </div>
             <h3>Chef: <Link to={`/user_recipes/${this.state.oneRecipe.user.id}`}>{this.state.oneRecipe.user.username}</Link></h3>
-            <h3>Description</h3>
-            <p>{this.state.oneRecipe.description}</p>
-            <h3>Ingredients</h3>
-            <p>{this.state.oneRecipe.ingredients}</p>
-            <h3>Preparation</h3>
-            <p>{this.state.oneRecipe.prep}</p>
+            <div className="full-recipe-content">
+              <h3>Description</h3>
+              <p>{this.state.oneRecipe.description}</p>
+              <h3>Ingredients</h3>
+              <p>{this.state.oneRecipe.ingredients}</p>
+              <h3>Preparation</h3>
+              <p>{this.state.oneRecipe.prep}</p>
+            </div>
             <div className="full-recipe-user-buttons">
-              {this.state.oneRecipe.user.id === this.props.currentUser.id ? <button id={this.state.oneRecipe.id} onClick={this.props.handleDelete}>Delete Recipe</button> : null}
-              {this.state.oneRecipe.user.id === this.props.currentUser.id ? <Link to={`/edit/${this.state.oneRecipe.id}`}><button id={this.state.oneRecipe.id}>Edit Recipe</button></Link> : null}
+              {this.state.oneRecipe.user.id === this.props.currentUser.id ? <button className="full-recipe-button-reach" id={this.state.oneRecipe.id} onClick={this.props.handleDelete}>Delete Recipe</button> : null}
+              {this.state.oneRecipe.user.id === this.props.currentUser.id ? <Link to={`/edit/${this.state.oneRecipe.id}`}><button className="full-recipe-button-reach" id={this.state.oneRecipe.id}>Edit Recipe</button></Link> : null}
             </div>
             <CreateComments createComment={this.createComment} recipe_id={this.state.oneRecipe.id} currentUser={this.props.currentUser} />
             <CommentList destroyComment={this.destroyComment} comment={this.state.comment} recipe_id={this.state.oneRecipe.id} />
