@@ -22,21 +22,22 @@ export default class MainPageUser extends React.Component {
   render() {
     return (
       <div className="main-side">
-        <div className="main-side-top">
+        <div id="profile-top" className="main-side-top">
           <div className="main-side-top-buttons">
-            <h1>{this.props.currentUser.username}</h1>
             <div id="user-image">
-              {this.props.currentUser.image_url === null ? <img src='https://i.imgur.com/HZPz2tu.png' alt="default user profile" /> : <img src={this.props.currentUser.image_url} alt="current user profile" />}
+              {this.props.currentUser.image_url === null ? <Link to={`/update_profile/${this.props.currentUser.id}`}><img src='https://i.imgur.com/HZPz2tu.png' alt="default user profile" /></Link> : <Link to={`/update_profile/${this.props.currentUser.id}`}><img src={this.props.currentUser.image_url} alt="current user profile" /></Link>}
             </div>
-            <h3>Representing {this.props.currentUser.location}</h3>
-            <Link to={`/update_profile/${this.props.currentUser.id}`}>
-              <button className="small-button">Edit Profile</button>
-            </Link>
-            <button onClick={this.props.handleLogout} className="small-button">Logout</button>
-            <button>Following</button>
-            <button>Favorites</button>
+            <h3 className="main-side-heading">Representing {this.props.currentUser.location}</h3>
+            <div className="main-side-buttons">
+              <button>Following</button>
+              <button>Favorites</button>
+              <button onClick={this.props.handleLogout} className="small-button">Logout</button>
+            </div>
           </div>
           <div className="sticky">
+            <a className="sticky-anchor" href="#profile-top">
+              <h1>{this.props.currentUser.username}</h1>
+            </a>
             <Link to="/recipes/new">
               <button>Create</button>
             </Link>

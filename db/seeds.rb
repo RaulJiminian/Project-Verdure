@@ -10,7 +10,7 @@ user = User.create({
   username: 'Admin',
   email: 'admin@admin.com',
   password: 'password',
-  image_url: 'https://i.imgur.com/HZPz2tu.png',
+  image_url: 'https://i.imgur.com/Pi6ATGN.png',
   location: 'NYC',
   description: 'I am the almighty Admin; trespassers beware!'
 })

@@ -69,7 +69,6 @@ padding: 10px
 }
 
 #user-image {
-width: 200px;
 margin: 0 auto;
 padding: 5px;
 }
@@ -100,8 +99,12 @@ position: relative;
 }
 
 .main-side img {
-max-width: 60%;
-border-radius: 30%;
+  width: 85px;
+  height: 85px;
+  border: 2px solid #AE6968;
+  border-radius: 50%;
+  grid-area: main;
+  cursor: pointer;
 }
 
 .main-side-top {
@@ -117,9 +120,9 @@ letter-spacing:1px;
 .main-side-top button {
 font-family:'Literata', Arial;
 font-weight: 600;
-margin: 5px 10px;
+margin: 8px 5px;
 font-size: .8em;
-width: 30%;
+width: 50%;
 height: 25px;
 background: #be8786;
 border: 2px solid #AE6968;
@@ -140,10 +143,35 @@ box-shadow: 2px 2px 2px #D4EBEB;
 position: -webkit-sticky;
 position: sticky;
 top: -1px;
-margin-bottom: 10px;
 background-color: white;
 height: 50px;
 z-index: 50;
+display: grid;
+grid-template-columns: 1fr 1fr;
+}
+
+.sticky-anchor {
+  text-decoration: none;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.sticky-anchor h1 {
+  margin: auto auto;
+  font-size: 25px;
+  color: #AE6968;
+  cursor: pointer;
+  background-image: linear-gradient(#AE6968, #AE6968);
+  background-size: 0 2px, auto;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  transition: all .2s ease-out;
+  width: 50%;
+}
+
+.sticky-anchor h1:hover {
+  color: #69AEAE;
+  background-size: 100% 2px, auto;
 }
 
 .sticky button {
@@ -159,15 +187,24 @@ padding: 20px;
 z-index: 50;
 }
 
-.main-side-top-buttons h1 {
+.main-side-top-buttons h3 {
+font-size: 17px;
 margin: 0;
-padding-top: 20px;
 color: #AE6968;
+grid-area: rep;
 }
 
-.main-side-top-buttons h3 {
-margin: .5em;
-color: #AE6968;
+.main-side-buttons {
+  grid-area: buttons;
+}
+
+.main-side-top-buttons {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  'main buttons'
+  'rep buttons';
 }
 
 .main-recipe-recipes h2{
@@ -262,18 +299,18 @@ header {
 }
 
 header img {
-  width: 90%;
-  margin-block-start: .4em;
-  margin-block-end: .4em;
-  margin-left: 15px;
+  width: 45%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 38%;
 }
 
 .login-image {
-  width: 30%;
+  width: 35%;
   cursor: pointer;
-  margin: 20px auto 0 auto;
-  border: 1px solid #AE6968;
-  border-radius: 30px;
+  border-radius: 0;
 }
 
 header a {
