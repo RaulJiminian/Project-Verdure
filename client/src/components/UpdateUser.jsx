@@ -24,57 +24,80 @@ export default class UpdateUser extends React.Component {
   render() {
     return (
       <div className='update-user'>
-        <form className='update-form' onSubmit={(event) => {
+        <form id='update-user-form' onSubmit={(event) => {
           event.preventDefault();
           this.props.handleEditUser(this.props.id, this.state.userData)
         }}>
-          <label htmlFor="email">Email</label>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            placeholder="Email@address.com"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="text"
-            name="password"
-            id="password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <label htmlFor="image_url">Image</label>
-          <input
-            type="text"
-            name="image_url"
-            id="image"
-            placeholder="Insert Image URL"
-            value={this.state.image_url}
-            onChange={this.handleChange}
-          />
-          <label htmlFor="location">Location</label>
-          <input
-            type="text"
-            name="location"
-            id="location"
-            placeholder="Enter Location"
-            value={this.state.location}
-            onChange={this.handleChange}
-          />
-          <label htmlFor="description">Description</label>
-          <input
-            type="text"
-            name="description"
-            id="description"
-            placeholder="Description"
-            value={this.state.description}
-            onChange={this.handleChange}
-          />
-          <br />
-          <button>Update</button>
+          <div className="sign-in-main">
+            <div className="sign-in-header">
+              <h2 id="create-form-title">Update Profile</h2>
+            </div>
+            <div className="sign-in-grid">
+              <div className="sign-in-input-div">
+                <label htmlFor="email">Email</label>
+                <input
+                  className="sign-in-input"
+                  type="text"
+                  name="email"
+                  id="email"
+                  placeholder="Email@address.com"
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="sign-in-input-div">
+                <label htmlFor="password">Password</label>
+                <input
+                  className="sign-in-input"
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="Password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="sign-in-input-div">
+                <label htmlFor="image_url">Image</label>
+                <input
+                  className="sign-in-input"
+                  type="text"
+                  name="image_url"
+                  id="image"
+                  placeholder="Insert Image URL"
+                  value={this.state.image_url}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="sign-in-input-div">
+                <label htmlFor="location">Location</label>
+                <input
+                  className="sign-in-input"
+                  type="text"
+                  name="location"
+                  id="location"
+                  placeholder="Enter Location"
+                  value={this.state.location}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="sign-in-input-div">
+                <label htmlFor="description">Description</label>
+                <input
+                  className="sign-in-input"
+                  type="text"
+                  name="description"
+                  id="description"
+                  placeholder="Description"
+                  value={this.state.description}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div>
+                <button id='update-user-button'>Update</button>
+              </div>
+            </div>
+          </div>
         </form>
       </div>
     )

@@ -20,30 +20,47 @@ export default class LoginForm extends Component {
         event.preventDefault();
         this.props.handleLogin(this.state);
       }}>
-        <img src="https://i.imgur.com/gPRbcbL.png" alt="verdure logo" />
-        <h2>Login</h2>
-        <label htmlFor="username">Username</label>
-        <input
-          placeholder="username"
-          name="username"
-          id="username"
-          type="text"
-          value={this.state.username}
-          onChange={this.handleChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          placeholder="password"
-          name="password"
-          id="password"
-          type="password"
-          value={this.state.password}
-          onChange={this.handleChange}
-        />
-        <button id="submit">Login</button>
-        <Link to='/register'>
-          <button id="register-link">Register</button>
-        </Link>
+        <img className="login-logo-image" src="https://i.imgur.com/IoEQE0G.png" alt="verdure logo" />
+        <div className="sign-in-main">
+          <div className="sign-in-header">
+            <h2>Welcome Back</h2>
+          </div>
+          <div className="sign-in-grid">
+            <div className="sign-in-input-div">
+              <label htmlFor="username">Username</label>
+              <input
+                className="sign-in-input"
+                placeholder="Username"
+                name="username"
+                id="username"
+                type="text"
+                value={this.state.username}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="sign-in-input-div">
+              <label htmlFor="password">Password</label>
+              <input
+                className="sign-in-input"
+                placeholder="Password"
+                name="password"
+                id="password"
+                type="password"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div>
+              <button id="submit">SIGN IN</button>
+            </div>
+            <div className="sign-in-lower-grid">
+              <p>Don't have an account?</p>
+              <Link to='/register'>
+                <p id="register-link">SIGN UP NOW</p>
+              </Link>
+            </div>
+          </div>
+        </div>
       </form>
     )
   }

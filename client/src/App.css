@@ -349,6 +349,7 @@ header p:hover {
 
 .footer img {
   width: 50px;
+  cursor: pointer;
 }
 
 #github {
@@ -638,9 +639,209 @@ a:-webkit-any-link {
   grid-gap: 15px;
 }
 
-/* ================ Forms ================ */
+/* ======================= Forms ======================= */
+
+form {
+  background: #AE6968;
+  height: 100vh;
+}
+
+#create-recipe-form {
+  height: 492px;
+  display: flex;
+}
+
+#update-user-form {
+  height: 492px;
+  display: flex;
+}
+
+.update-user {
+  margin-top: 100px;
+}
+
+/* ================ Sign In / Register ================ */
+
+.login-logo-image {
+  width: 14%;
+  margin-top: 10px;
+  border-radius: 45%;
+}
+
+.login-logo-image-two {
+  width: 14%;
+  margin-top: 10px;
+  border-radius: 45%;
+  cursor: pointer;
+}
+
+.sign-in-main {
+  width: 30%;
+  height: 450px;
+  margin: 15px auto;
+  background: white;
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
+
+.sign-in-header {
+  background: #69AEAE;
+  color: #AE6968;
+  height: 75px;
+  border-radius: 20px 20px 0 0
+}
+
+.sign-in-grid {
+  display: grid;
+  height: 375px;
+}
+
+.sign-in-header h2 {
+  margin: 0;
+  padding: 25px;
+}
+
+.sign-in-input-div {
+  align-self: end;
+}
+
+.sign-in-input {
+  font-size: 14px;
+  position: relative;
+  width: 65%;
+  height: 45px;
+  background: #ebebeb;
+  color: #AE6968;
+  border-radius: 27px;
+  padding: 0 35px 0 35px;
+  border-style: none;
+  outline: none;
+  transition: width 1s;
+}
+
+.sign-in-input::placeholder {
+  color: #AE6968;
+}
+
+.sign-in-input:focus {
+  width: 70%;
+}
+
+#submit {
+  align-items: center;
+  padding: 0 20px;
+  width: 85%;
+  height: 45px;
+  background-color: #69AEAE;
+  border-radius: 25px;
+  font-size: 15px;
+  color: #AE6968;
+  margin-top: 15px;
+  font-weight: bolder;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+#submit:hover {
+  background-color: #AE6968;
+  color: #69AEAE;
+}
+
+#register {
+  align-items: center;
+  padding: 0 20px;
+  width: 85%;
+  height: 45px;
+  background-color: #69AEAE;
+  border-radius: 25px;
+  font-size: 15px;
+  color: #AE6968;
+  margin-top: 15px;
+  font-weight: bolder;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+#register:hover {
+  background-color: #AE6968;
+  color: #69AEAE;
+}
+
+#create-recipe-button {
+  align-items: center;
+  padding: 0 20px;
+  width: 85%;
+  height: 45px;
+  background-color: #69AEAE;
+  border-radius: 25px;
+  font-size: 15px;
+  color: #AE6968;
+  margin-top: 15px;
+  font-weight: bolder;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+#create-recipe-button:hover {
+  background-color: #AE6968;
+  color: #69AEAE;
+}
+
+#update-user-button {
+  align-items: center;
+  padding: 0 20px;
+  width: 85%;
+  height: 45px;
+  background-color: #69AEAE;
+  border-radius: 25px;
+  font-size: 15px;
+  color: #AE6968;
+  margin-top: 15px;
+  font-weight: bolder;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+#update-user-button:hover {
+  background-color: #AE6968;
+  color: #69AEAE;
+}
+
+.sign-in-lower-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.sign-in-lower-grid p {
+  color: #999999;
+  align-self: end;
+  margin: 0;
+}
+
+#register-link {
+  width: 30%;
+  margin: 0 auto;
+  cursor: pointer;
+  color: #AE6968;
+}
+
+#register-link:hover {
+  color: #69AEAE;
+}
+
+.sign-in-lower-grid a {
+  text-decoration: none;
+  display: table;
+}
+
+/* ================ Other ================ */
+
 .create-recipe {
-  margin-top: 115px;
+  margin-top: 100px;
 }
 
 .full-recipe-page {

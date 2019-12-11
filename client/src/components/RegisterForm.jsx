@@ -34,57 +34,78 @@ export default class RegisterForm extends Component {
         this.props.handleRegister(this.state)
       }}>
         <Link to="/">
-          <img src="https://i.imgur.com/gPRbcbL.png" alt="verdure logo" />
+          <img className="login-logo-image-two" src="https://i.imgur.com/IoEQE0G.png" alt="verdure logo" />
         </Link>
-        <h2>Register for a new account</h2>
-        <label htmlFor="username">Username</label>
-        <input
-          placeholder="username"
-          name="username"
-          id="username"
-          type="text"
-          value={this.state.username}
-          onChange={this.handleChange}
-        />
-        <label htmlFor="email">Email</label>
-        <input
-          placeholder="email"
-          name="email"
-          id="email"
-          type="email"
-          value={this.state.email}
-          onChange={this.handleChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          placeholder="password"
-          name="password"
-          id="password"
-          type="password"
-          value={this.state.password}
-          onChange={this.handleChange}
-        />
-        <label htmlFor="location">Location</label>
-        <input
-          placeholder="location"
-          name="location"
-          id="location"
-          type="text"
-          value={this.state.location}
-          onChange={this.handleChange}
-        />
-        <label htmlFor="description">Description</label>
-        <input
-          placeholder="description"
-          name="description"
-          id="description"
-          type="text"
-          value={this.state.description}
-          onChange={this.handleChange}
-        />
-        <button disabled={!isEnabled}>Submit</button>
-        <br />
-        <p>{this.props.authErrorMessage}</p>
+        <div className="sign-in-main">
+          <div className="sign-in-header">
+            <h2>Register for a new account</h2>
+          </div>
+          <div className="sign-in-grid">
+            <div className="sign-in-input-div">
+              <label htmlFor="username">Username</label>
+              <input
+                className="sign-in-input"
+                placeholder="Username"
+                name="username"
+                id="username"
+                type="text"
+                value={this.state.username}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="sign-in-input-div">
+              <label htmlFor="email">Email</label>
+              <input
+                className="sign-in-input"
+                placeholder="Email"
+                name="email"
+                id="email"
+                type="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="sign-in-input-div">
+              <label htmlFor="password">Password</label>
+              <input
+                className="sign-in-input"
+                placeholder="Password"
+                name="password"
+                id="password"
+                type="password"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="sign-in-input-div">
+              <label htmlFor="location">Location</label>
+              <input
+                className="sign-in-input"
+                placeholder="Location"
+                name="location"
+                id="location"
+                type="text"
+                value={this.state.location}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="sign-in-input-div">
+              <label htmlFor="description">Description</label>
+              <input
+                className="sign-in-input"
+                placeholder="Description"
+                name="description"
+                id="description"
+                type="text"
+                value={this.state.description}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div>
+              <button id="register" disabled={!isEnabled}>Register</button>
+            </div>
+          </div>
+        </div>
       </form>
     )
   }
